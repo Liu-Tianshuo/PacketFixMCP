@@ -156,23 +156,21 @@
 
 
 ### C08PacketPlayerBlockPlacement
-#### readPacketData
+#### writePacketData
 ##### 直接替换以下代码
 ```java
-  public void writePacketData(PacketBuffer buf) throws IOException
-    {
-
+    public void writePacketData(PacketBuffer buf) throws IOException {
         buf.writeBlockPos(this.position);
         buf.writeByte(this.placedBlockDirection);
         buf.writeItemStackToBuffer(this.stack);
         if (ViaLoadingBase.getInstance().getTargetVersion().getVersion() > 47) {
-            buf.writeByte((int)(this.facingX));
-            buf.writeByte((int)(this.facingY));
-            buf.writeByte((int)(this.facingZ));
+            buf.writeByte((int) (this.facingX));
+            buf.writeByte((int) (this.facingY));
+            buf.writeByte((int) (this.facingZ));
         } else {
-            buf.writeByte((int)(this.facingX * 16.0F));
-            buf.writeByte((int)(this.facingY * 16.0F));
-            buf.writeByte((int)(this.facingZ * 16.0F));
+            buf.writeByte((int) (this.facingX * 16.0F));
+            buf.writeByte((int) (this.facingY * 16.0F));
+            buf.writeByte((int) (this.facingZ * 16.0F));
         }
     }
 
